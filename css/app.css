@@ -1,16 +1,28 @@
-.container {
-    margin: 100px auto;
-    max-width: 30%;
-    background-color: green;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
     display: flex;
     justify-content: center;
+   
+}
+.container {
+    height: 100vh;
+    max-width: 30%;
+    background-color:lightgray;
+    display: flex;
+    align-items: center;
 }
 
 img {
     max-width: 100%;
 }
 
-.carosello {   
+.slide_photo {
+    border: 2px solid blak;
+    align-items: center;
 }
 
 
