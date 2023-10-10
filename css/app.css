@@ -1,7 +1,7 @@
 .container {
     margin: 100px auto;
     max-width: 30%;
-    background-color: bisque;
+    background-color: green;
     display: flex;
     justify-content: center;
 }
@@ -10,8 +10,7 @@ img {
     max-width: 100%;
 }
 
-.carosello { 
-    
+.carosello {   
 }
 
 
