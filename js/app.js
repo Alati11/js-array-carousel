@@ -21,5 +21,5 @@ for (let i = 0; i < lunghezzaArray; i++) {
     console.log(i, container)
 }
 
-// const items_slider = document.querySelector('.item-slider').innerHTML = container;
+//const items_slider = document.querySelector('.item-slider').innerHTML = container;
 // const items_thumbnails = document.querySelector('.item-thumbnails').innerHTML = item_thumb;
