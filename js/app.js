@@ -30,7 +30,7 @@ const itemDOMElements = document.querySelectorAll('.carousel__item')
 console.log(itemDOMElements)
 
 // meorizzando lo stato del carosello (indice della slide attiva)
-let currentIndex = 4
+let currentIndex = 2    
 
 // aggiunedo la classe active alla slide attiva
 let currentSlide = itemDOMElements[currentIndex]
@@ -45,11 +45,49 @@ arrowBottom.addEventListener('click', function () {
 	console.log('click bottom')
 
 	console.log(itemDOMElements[currentIndex + 1])
+
+    // prenedere la slide attiva
+	// togliere la classe active alla slide attiva
+    next.addEventListener ('click', function() {
+
+        items[item_active].classList.remove('active');
+        
+    
+        if ( item_active === arrayPhoto.length-1 ) {
+            item_active = 0;
+        }
+        else {
+            item_active++;
+        };
+    
+        items[item_active].classList.add('active');
+     
+    });    
+
+	// prendere la slide successiva
+    const nextDOMElement = document.querySelector('.next');
+    console.log(nextDOMElement);
+    const carouselDOMElements = document.querySelector('img.carousel__item');
+    console.log(itemsDOMElements);
+
+	// aggiungere alla slide successiva la classe active
+    let currentActiveCarouselIndex = 0;  
+    nextDOMElement.addEventListener("click", function() {
+    carouselDOMElements[currentActiveCarouselIndex].classList.remove('active');
+        if (currentActiveCarouselIndex < arrayPhoto.length -1){
+            currentActiveCarouselIndex++;
+        }else {
+            currentActiveCarouselIndex = 0;
+        }
+        console.log(currentActiveCarouselIndex, arrayPhoto.length)
+        carouselDOMElement[currentActiveCarouselIndex].classList.add("active")
+    }
+    ) 
+
+	// incrementare il valore di currentIndex
 })
 
 arrowTop.addEventListener('click', function () {
 	console.log('click top')
-
 	console.log(itemDOMElements[currentIndex])
 })
-//const items_slider = document.querySelector('.item-slider').innerHTML = container;
