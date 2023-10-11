@@ -3,10 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
+/* body {
     display: flex;
     justify-content: center;
-}
+} */
 
 img {
     max-width: 100%;
@@ -17,10 +17,8 @@ section {
 }
 
 .container {
-    height: 100vh;
-    max-width: 30%;
-    display: flex;
-    align-items: center;
+	max-width: 900px;
+	margin: 0 auto;
 }
 
 .carousel {

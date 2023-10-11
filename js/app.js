@@ -1,25 +1,55 @@
 
 // - creare un array con le foto
-let arrayPhoto = [ '01.webp', '02.webp', '03.webp', '04.webp', '05.webp']
+let arrayPhoto = [ 
+    './img/01.webp',
+    './img/02.webp',
+    './img/03.webp',
+    './img/04.webp',
+    './img/05.webp',
+]
 
 // dichiararo variabili
-let container = '';
-// let itemThumb = '';
+const carouselDOMElement = document.querySelector('.carousel'); 
+console.log(carouselDOMElement, arrayPhoto); 
 
 // determeniare la lunghezza degli elementi contenuti 
-let lunghezzaArray = arrayPhoto.length;
-
 // -crare un ciclo for per concatenare un template
     // -leggere i dati presenti nell'array
     // -concatenare i dati
     // -stampare il risultato della concatenazione
-for (let i = 0; i < lunghezzaArray; i++) {
-    // console.log(i,);
+for (let i = 0; i < arrayPhoto.length; i++) {
+    console.log(arrayPhoto[i])
+	const src = arrayPhoto[i]
    
-    container += `<div class="item"><img src="./img/${ arrayPhoto[i] }"></div>`;
-    // itemThumb += `<div class="thumb"><img src="./img/${ arrayPhoto[i] }"></div>`; 
-    console.log(i, container)
+    const html = `<img class="carousel__item" src="${src}" alt="" />`
+	carouselDOMElement.innerHTML = carouselDOMElement.innerHTML + html
 }
 
+// recuperando dal DOM tutte le immagini stampate nel ciclo for
+const itemDOMElements = document.querySelectorAll('.carousel__item')
+console.log(itemDOMElements)
+
+// meorizzando lo stato del carosello (indice della slide attiva)
+let currentIndex = 4
+
+// aggiunedo la classe active alla slide attiva
+let currentSlide = itemDOMElements[currentIndex]
+currentSlide.classList.add('active')
+
+// carousel controls
+const arrowTop = document.querySelector('.carousel .arrow--top')
+const arrowBottom = document.querySelector('.carousel .arrow--bottom')
+console.dir(arrowTop, arrowBottom)
+
+arrowBottom.addEventListener('click', function () {
+	console.log('click bottom')
+
+	console.log(itemDOMElements[currentIndex + 1])
+})
+
+arrowTop.addEventListener('click', function () {
+	console.log('click top')
+
+	console.log(itemDOMElements[currentIndex])
+})
 //const items_slider = document.querySelector('.item-slider').innerHTML = container;
-// const items_thumbnails = document.querySelector('.item-thumbnails').innerHTML = item_thumb;
