@@ -30,7 +30,7 @@ const itemDOMElements = document.querySelectorAll('.carousel__item')
 console.log(itemDOMElements)
 
 // meorizzando lo stato del carosello (indice della slide attiva)
-let currentIndex = 2    
+let currentIndex = 0    
 
 // aggiunedo la classe active alla slide attiva
 let currentSlide = itemDOMElements[currentIndex]
@@ -44,50 +44,43 @@ console.dir(arrowTop, arrowBottom)
 arrowBottom.addEventListener('click', function () {
 	console.log('click bottom')
 
-	console.log(itemDOMElements[currentIndex + 1])
 
     // prenedere la slide attiva
 	// togliere la classe active alla slide attiva
-    next.addEventListener ('click', function() {
 
-        items[item_active].classList.remove('active');
-        
-    
-        if ( item_active === arrayPhoto.length-1 ) {
-            item_active = 0;
+    // loop
+        const activeSlideElement = itemDOMElements[currentIndex]
+	    activeSlideElement.classList.remove('active')
+   
+
+        if ( currentIndex === arrayPhoto.length-1 ) {
+            currentIndex = 0
         }
         else {
-            item_active++;
+            currentIndex++;
         };
     
-        items[item_active].classList.add('active');
-     
-    });    
-
-	// prendere la slide successiva
-    const nextDOMElement = document.querySelector('.next');
-    console.log(nextDOMElement);
-    const carouselDOMElements = document.querySelector('img.carousel__item');
-    console.log(itemsDOMElements);
+        // prendere la slide successiva
+        const nextSlideElement = itemDOMElements[currentIndex]
 
 	// aggiungere alla slide successiva la classe active
-    let currentActiveCarouselIndex = 0;  
-    nextDOMElement.addEventListener("click", function() {
-    carouselDOMElements[currentActiveCarouselIndex].classList.remove('active');
-        if (currentActiveCarouselIndex < arrayPhoto.length -1){
-            currentActiveCarouselIndex++;
-        }else {
-            currentActiveCarouselIndex = 0;
-        }
-        console.log(currentActiveCarouselIndex, arrayPhoto.length)
-        carouselDOMElement[currentActiveCarouselIndex].classList.add("active")
-    }
-    ) 
+	    nextSlideElement.classList.add('active')
+    });    
 
-	// incrementare il valore di currentIndex
-})
 
-arrowTop.addEventListener('click', function () {
-	console.log('click top')
-	console.log(itemDOMElements[currentIndex])
+        arrowTop.addEventListener('click', function () {
+	    console.log('click top')
+
+        const activeSlideElement = itemDOMElements[currentIndex]
+	    activeSlideElement.classList.remove('active')
+
+	    if (currentIndex === 0) {
+		currentIndex = itemDOMElements.length - 1
+	    } else {
+		currentIndex--
+	    }
+
+	    const nextSlideElement = itemDOMElements[currentIndex]
+	    nextSlideElement.classList.add('active')
+
 })
